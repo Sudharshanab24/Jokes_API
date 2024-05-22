@@ -3,8 +3,10 @@ import express from "express"
 const router=express.Router()
 
 router.post('/create',(req,res)=>{
-    const dataFromClient=(req.body)
-    res.send(dataFromClient)
+    const dataFromClient={ ...req.body, created_at: Date.now()};
+
+    console.log(typeof dataFromClient,dataFromClient)
+    return res.json(dataFromClient)
 })
 
 
