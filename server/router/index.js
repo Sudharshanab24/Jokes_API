@@ -1,11 +1,14 @@
 import express from "express"
+import { createjokes } from "../models/jokes_api.js";
 
 const router=express.Router()
 
-router.post('/create',(req,res)=>{
-    const dataFromClient={ ...req.body, created_at: Date.now()};
+router.post('/create',async(req,res)=>{
+    const dataFromClient=req.body;
 
-    console.log(typeof dataFromClient,dataFromClient)
+    const createdres=await createjokes(dataFromClient);
+
+    console.log("connection in index file",createdres);
     return res.json(dataFromClient)
 })
 
