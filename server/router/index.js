@@ -1,5 +1,5 @@
 import express from "express"
-import { createjokes, getjokes } from "../models/jokes_api.js";
+import { createjokes, deletejokes, getjokes, updatejokes } from "../models/jokes_api.js";
 
 const router=express.Router()
 
@@ -33,6 +33,30 @@ router.get('/jokes',async(req,res)=>
     console.log(result);
 
     return res.json(result);
+})
+
+router.put('/jokes/:id',async(req,res)=>
+{
+    const docid=req.params.id;
+
+    if(docid)
+        {
+        const result=await updatejokes(docid,req.body)
+        return res.json(result);
+        }
+    else
+    return res.status(403);
+})
+
+router.delete('/jokes/:id',async(req,res)=>
+{
+    const docid=req.params.id;
+    if(docid)
+        {
+            const result=await deletejokes(docid);
+            return res.json(result)
+        }
+    return res.status(403);
 })
 
 export default router;
