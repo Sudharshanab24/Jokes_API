@@ -1,5 +1,5 @@
 import express from "express"
-import { createjokes } from "../models/jokes_api.js";
+import { createjokes, getjokes } from "../models/jokes_api.js";
 
 const router=express.Router()
 
@@ -25,5 +25,14 @@ router.post('/create',async(req,res)=>{
     }
 })
 
+
+router.get('/jokes',async(req,res)=>
+{
+    const result=await getjokes()
+
+    console.log(result);
+
+    return res.json(result);
+})
 
 export default router;
