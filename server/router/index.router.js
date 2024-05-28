@@ -1,5 +1,5 @@
 import express from "express"
-import { createjokes, deletejokes, getjokes, updatejokes } from "../models/jokes_api.js";
+import { createjokes, deletejokes, getjokes, updatejokes } from "../services/jokes_api.service.js";
 
 const router=express.Router()
 

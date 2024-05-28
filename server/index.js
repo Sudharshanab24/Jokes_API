@@ -1,4 +1,4 @@
-import router from './router/index.js'
+import router from './router/index.router.js'
 import 'dotenv/config'
 import express from "express"
 import mongoose from "mongoose"
@@ -9,6 +9,10 @@ const port=8000
 app.use(express.json())
 app.use(router)
 
+router.get("*",(req,res)=>{
+  return res.status(404);
+})
+
 
 app.get('/',(req,res)=>{
   res.json({
@@ -16,6 +20,8 @@ app.get('/',(req,res)=>{
     age:20
   })
 })
+
+
 
 app.listen(port,()=>{
     console.log("Server is running");
