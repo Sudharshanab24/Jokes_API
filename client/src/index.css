@@ -2,3 +2,82 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Add these styles to your existing CSS file */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Roboto', Arial, sans-serif;
+  font-size: 1.2rem;
+}
+
+
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.input-focus:focus {
+  border-color: #3b82f6; /* Tailwind's blue-500 */
+  box-shadow: 0 0 5px rgba(59, 130, 246, 0.5);
+}
+
+.button-hover:hover {
+  transform: scale(1.05);
+}
+
+
+/* Define the keyframe animation for the gradient background */
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Apply the animation to the background */
+.animated-background {
+  background: linear-gradient(270deg, #ff7e5f, #feb47b, #ff7e5f);
+  background-size: 400% 400%;
+  animation: gradientAnimation 15s ease infinite;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Behind the form */
+}
+
+.fade-in {
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Input and button focus styles for better UX */
+.input-focus:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.5);
+}
+
+.button-hover:hover {
+  transform: scale(1.05);
+}
