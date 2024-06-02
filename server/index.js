@@ -22,6 +22,13 @@ app.get('/',(req,res)=>{
     age:20
   })
 })
+app.post('/generate-api-key', (req, res) => {
+  // Generate API key logic here
+  const apiKey = generateApiKey(); // Assuming you have a function to generate API keys
+
+  // Send the API key in the response
+  res.json({ apiKey });
+});
 
 
 
